@@ -17,6 +17,33 @@ public class Tienda {
         System.out.println("Producto agregado: " + producto);
     }
 
+    public void modificarProducto(int id, String nombre, double precio, int cantidad) {
+        for (Producto producto : inventario) {
+            if (producto.getId() == id) {
+                producto = new Producto(id, nombre, precio, cantidad);
+                System.out.println("Producto modificado: " + producto);
+                return;
+            }
+        }
+        System.out.println("Producto no encontrado.");
+    }
+
+    public void eliminarProducto(int id) {
+        Producto producto = null;
+        for (Producto p : inventario) {
+            if (p.getId() == id) {
+                producto = p;
+                break;
+            }
+        }
+        if (producto != null) {
+            inventario.remove(producto);
+            System.out.println("Producto eliminado: " + producto);
+        } else {
+            System.out.println("Producto no encontrado.");
+        }
+    }
+
     public void realizarVenta(int idProducto, int cantidad) {
         Producto producto = null;
         for (Producto p : inventario) {

@@ -33,7 +33,7 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
-
+    @Override
     public String toString() {
         return "Producto{" +
                 "id=" + id +
